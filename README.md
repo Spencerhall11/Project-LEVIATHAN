@@ -31,3 +31,11 @@ Implementation: Serves as the system's external hypervisor dashboard. By reading
 Key features:
 Zero-Copy Shared Memory IPC
 To bypass the devastating latency overhead of network sockets, local loops, or standard text serialization (JSON/Protobuf), data transfer across all five runtimes is achieved via custom-structured POSIX shared memory segments. Communication latency across the polyglot stack is maintained at sub-millisecond thresholds, enabling the bare-metal C++ layer to react instantaneously to state mutations written by the Haskell logic thread, while the Java dashboard draws the diagnostics in a completely isolated thread pool.
+
+
+Target physical specification:
+Weight target: 15-19kg
+- Load bearing architecture: hip-centered pelvic harness, spine-unloaded
+- Thermal management: enclosed water cooling loop
+- Power: dual DeWalt FLEXVOLT battery pairs feeding a central LiFePO4 buffer battery for uninterrupted hotswap operation
+- Safety hardware: electromagnetic pin brakes at primary pivot shear planes, triggered by Rust safety layer
