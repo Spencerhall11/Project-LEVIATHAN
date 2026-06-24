@@ -1,12 +1,16 @@
 # Project-LEVIATHAN
 Project Leviathan is a high-performance, heterogeneous polyglot mechatronic control pipeline designed for real-time, low-latency execution. The architecture orchestrates concurrent computer vision inference, asynchronous phonetic keyword spotting, strict hardware safety contracts, and high-frequency physical actuation by seamlessly bridging five distinct execution environments over a localized, zero-copy shared memory data bus.
 
+What is it:
+Project Leviathan is a wearable mechatronic rig featuring two articulated dragon themed limbs mounted on a hip-centered load bearing harness. Each limb has an independent personality with distinct behavioral states managed by a haskell state machine. The rig responds to environmental input, tracks targets via a multi-camera array and requires a vocal authentication in a cipher before fully complying with the wearer. 
+Architecture below exists to make this goal possible.
+
 Polyglot Architecture
 matches the exact execution requirements of each subsystem to the optimal language runtime, minimizing garbage collection pauses and eliminating unneeded overhead.
 
-Perception & Inference Framework (Python)
+1. Perception & Inference Framework (Python)
 Role: High-throughput data ingestion and deep learning inference.
-Implementation: Leverages a CUDA-accelerated PyTorch pipeline to process a a multi-camera frame-capture array for real-time spatial target tracking. Simultaneously runs an asynchronous acoustic processing loop for local, offline phonetic keyword isolation (isolating high-signal foreign langauge directives out of ambient English environments).
+Implementation: Leverages a CUDA-accelerated PyTorch pipeline to process a multi-camera frame-capture array for real-time spatial target tracking. Simultaneously runs an asynchronous acoustic processing loop for local, offline phonetic keyword isolation (isolating high-signal foreign language directives out of ambient English environments).
 
 2. Pure Behavioral Logic Engine (Haskell)
 Role: High-integrity, deterministic state-transition management.
