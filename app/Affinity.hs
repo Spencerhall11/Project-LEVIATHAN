@@ -2,6 +2,17 @@ module Affinity where
 
 import Types
 
+-- | Events that affect affinity
+data AffinityEvent
+    = TrialSuccess
+    | DefiantFailure      -- failed but refused to yield
+    | ComfortableYield    -- gave up easily
+    | TyrSuccess
+    | TyrFlinch
+    | CipherMistake
+    | SessionCompleted
+    deriving (Show, Eq)
+
 -- | PackLeader thresholds per head
 packLeaderAffinityThreshold :: HeadId -> Double
 packLeaderAffinityThreshold Fafnir     = 175.0
@@ -59,14 +70,3 @@ affinityLoss hid CipherMistake       = case hid of
     Jormungandr -> 5.0
 affinityLoss _   ComfortableYield    = 10.0
 affinityLoss _   _                   = 0.0
-
--- | Events that affect affinity
-data AffinityEvent
-    = TrialSuccess
-    | DefiantFailure      -- failed but refused to yield
-    | ComfortableYield    -- gave up easily
-    | TyrSuccess
-    | TyrFlinch
-    | CipherMistake
-    | SessionCompleted
-    deriving (Show, Eq)
